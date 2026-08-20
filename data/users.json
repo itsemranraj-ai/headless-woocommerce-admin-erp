@@ -1,0 +1,29 @@
+[
+  {
+    "id": "usr_admin_default",
+    "name": "FixionFuel Administrator",
+    "email": "admin@fixionfuel.shop",
+    "username": "admin",
+    "passwordHash": "2a5db6de82e2620776cce172f660e31bf1209f81f30c20088c930256f1e86302",
+    "role": "admin",
+    "createdAt": "2026-08-14T11:11:41.847Z"
+  },
+  {
+    "id": "usr_prince_4426",
+    "name": "Raihan Raj",
+    "email": "pricekajol4426@gmail.com",
+    "username": "prince4426",
+    "passwordHash": "9c715aef97ca071e2f38fb0d54e55badff57815787f10dc7124ab8a97c84ee0c",
+    "role": "admin",
+    "createdAt": "2026-08-14T12:50:00.000Z"
+  },
+  {
+    "id": "usr_1786705957643_vu1ew",
+    "name": "Md Emran Raj",
+    "email": "mdemranraj4427@gmail.com",
+    "username": "emran247",
+    "passwordHash": "221b4eb4ecee86d80008dbac675b6e1a59fe3ddd7c85c300a8ce8155577a0ca3",
+    "role": "admin",
+    "createdAt": "2026-08-14T11:12:37.643Z"
+  }
+]
