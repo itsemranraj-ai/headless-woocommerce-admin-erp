@@ -63,6 +63,31 @@ function LoginForm() {
     }
   }, [urlError]);
 
+  const handleGenerateStrongPassword = () => {
+    const uppercase = "ABCDEFGHJKLMNPQRSTUVWXYZ";
+    const lowercase = "abcdefghijkmnpqrstuvwxyz";
+    const numbers = "23456789";
+    const symbols = "!@#$%&*";
+    const all = uppercase + lowercase + numbers + symbols;
+    
+    let pass = "";
+    pass += uppercase.charAt(Math.floor(Math.random() * uppercase.length));
+    pass += lowercase.charAt(Math.floor(Math.random() * lowercase.length));
+    pass += numbers.charAt(Math.floor(Math.random() * numbers.length));
+    pass += symbols.charAt(Math.floor(Math.random() * symbols.length));
+    
+    for (let i = 4; i < 12; i++) {
+      pass += all.charAt(Math.floor(Math.random() * all.length));
+    }
+    
+    pass = pass.split("").sort(() => 0.5 - Math.random()).join("");
+    
+    setRegPassword(pass);
+    setRegConfirmPassword(pass);
+    setShowRegPassword(true);
+    setShowRegConfirmPassword(true);
+  };
+
   // 1. Handle Login Submit
   const handleLoginSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -487,9 +512,19 @@ function LoginForm() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-xs font-extrabold text-slate-700 mb-1">
-                        Password <span className="text-rose-500">*</span>
-                      </label>
+                      <div className="flex items-center justify-between mb-1">
+                        <label className="block text-xs font-extrabold text-slate-700">
+                          Password <span className="text-rose-500">*</span>
+                        </label>
+                        <button
+                          type="button"
+                          onClick={handleGenerateStrongPassword}
+                          className="inline-flex items-center gap-1 text-[11px] font-black text-indigo-600 hover:text-indigo-800 bg-indigo-50 hover:bg-indigo-100 px-2 py-0.5 rounded-lg transition-colors cursor-pointer"
+                          title="Generate a strong random password"
+                        >
+                          <span>✨ Suggest Password</span>
+                        </button>
+                      </div>
                       <div className="relative">
                         <input
                           type={showRegPassword ? "text" : "password"}
