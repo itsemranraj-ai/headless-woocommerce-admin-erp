@@ -1,16 +1,16 @@
 /**
- * FixionFuel PWA Service Worker
+ * Store ERP PWA Service Worker
  *
  * Implements:
  * 1. Safe static asset caching for offline app shell resilience.
- * 2. Web Push notification display with FixionFuel branding.
+ * 2. Web Push notification display with Store ERP branding.
  * 3. Notification click handler to open/focus target order details.
  *
  * PRIVACY & SECURITY:
  * Authenticated API routes and private customer/order data are NEVER cached here.
  */
 
-const CACHE_NAME = 'fixionfuel-pwa-v2';
+const CACHE_NAME = 'demo-store-pwa-v2';
 const STATIC_ASSETS = [
   '/',
   '/manifest.webmanifest',
@@ -89,7 +89,7 @@ self.addEventListener('push', (event) => {
 
   try {
     const payload = event.data.json();
-    const title = payload.title || 'FixionFuel Order Alert';
+    const title = payload.title || 'Store ERP Order Alert';
     const options = {
       body: payload.body || 'New order update available.',
       icon: payload.icon || '/icons/icon-192.png',
@@ -107,7 +107,7 @@ self.addEventListener('push', (event) => {
     // Plain text fallback
     const text = event.data.text();
     event.waitUntil(
-      self.registration.showNotification('FixionFuel Notification', {
+      self.registration.showNotification('Store ERP Notification', {
         body: text,
         icon: '/icons/icon-192.png',
         badge: '/icons/badge-72.png',
@@ -125,7 +125,7 @@ self.addEventListener('notificationclick', (event) => {
 
   event.waitUntil(
     self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then((windowClients) => {
-      // Check if an existing FixionFuel tab is already open
+      // Check if an existing Store ERP tab is already open
       for (const client of windowClients) {
         if (client.url.includes(self.location.origin) && 'focus' in client) {
           if ('navigate' in client) {

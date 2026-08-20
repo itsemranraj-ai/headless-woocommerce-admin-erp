@@ -14,7 +14,7 @@ export default function ErrorBoundary({
 }) {
   useEffect(() => {
     // Log non-sensitive client error to console in development
-    console.error("FixionFuel Application Error Boundary caught:", error);
+    console.error("Store ERP Application Error Boundary caught:", error);
   }, [error]);
 
   return (

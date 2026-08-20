@@ -24,13 +24,13 @@ export async function GET(request: NextRequest) {
       const key = process.env.WOOCOMMERCE_CONSUMER_KEY || "ck_81feadcfea9035a0e43ece826b0b973a0f75dbfe";
       const secret = process.env.WOOCOMMERCE_CONSUMER_SECRET || "cs_6ad11d2d510d554139f7e757cf4ae98dcf8b3b5f";
       const auth = "Basic " + Buffer.from(`${key}:${secret}`).toString("base64");
-      const targetUrl = "https://fixionfuel.shop/wp-json/wc/v3/products?page=1&per_page=10";
+      const targetUrl = "https://itsemranraj.com/sss/wp-json/wc/v3/products?page=1&per_page=10";
 
       try {
         const rawRes = await fetch(targetUrl, {
           headers: {
             Authorization: auth,
-            "User-Agent": "FixionFuelAdmin/1.0",
+            "User-Agent": "Store ERPAdmin/1.0",
             Accept: "application/json",
           },
           cache: "no-store",

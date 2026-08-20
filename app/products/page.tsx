@@ -254,7 +254,7 @@ function ProductsListContent() {
             <StatusBadge status="WooCommerce Stock" variant="emerald" />
           </div>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
-            Real-time catalog and inventory synchronized with <span className="text-slate-800 font-semibold">fixionfuel.shop</span>
+            Real-time catalog and inventory synchronized with <span className="text-slate-800 font-semibold">itsemranraj.com/sss</span>
           </p>
         </div>
 

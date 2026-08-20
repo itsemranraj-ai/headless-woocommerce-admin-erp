@@ -2,8 +2,8 @@ import React from "react";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Under Scheduled Maintenance | FixionFuel Portal",
-  description: "FixionFuel Order Management Portal is currently undergoing scheduled maintenance.",
+  title: "Under Scheduled Maintenance | Store Admin ERP",
+  description: "Headless WooCommerce ERP Portal is currently undergoing scheduled maintenance.",
 };
 
 export default function MaintenancePage() {
@@ -18,7 +18,7 @@ export default function MaintenancePage() {
           <div className="w-20 h-20 rounded-2xl bg-black/60 border border-slate-700/60 p-3 shadow-inner flex items-center justify-center relative">
             <Image
               src="/brand-dna.png"
-              alt="FixionFuel DNA"
+              alt="Store ERP DNA"
               width={64}
               height={64}
               priority
@@ -43,7 +43,7 @@ export default function MaintenancePage() {
           </h1>
 
           <p className="text-sm text-slate-400 leading-relaxed max-w-md mx-auto">
-            FixionFuel Management & Sales Portal is currently undergoing server infrastructure upgrades. Access is temporarily suspended for all users.
+            Store ERP Management & Sales Portal is currently undergoing server infrastructure upgrades. Access is temporarily suspended for all users.
           </p>
         </div>
 
@@ -67,7 +67,7 @@ export default function MaintenancePage() {
 
         {/* Footer */}
         <div className="pt-2 text-[11px] text-slate-500 font-medium border-t border-slate-800/80">
-          FixionFuel Internal Operations Portal • 2026
+          Store ERP Internal Operations Portal • 2026
         </div>
       </div>
     </div>

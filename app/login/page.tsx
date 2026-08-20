@@ -159,12 +159,12 @@ function LoginForm() {
   // Download credentials as text file
   const downloadCredentials = () => {
     if (!registeredData) return;
-    const content = `FIXION FUEL ADMIN PORTAL LOGIN DETAILS\n======================================\nPortal URL: https://admin.fixionfuel.shop\nFull Name: ${registeredData.name}\nEmail: ${registeredData.email}\nUsername: ${registeredData.username}\nPassword: ${registeredData.password}\nRole: ${registeredData.role.toUpperCase()}\nDate Created: ${new Date().toLocaleString()}\n======================================\nKeep this file safe and do not share your password.`;
+    const content = `FIXION FUEL ADMIN PORTAL LOGIN DETAILS\n======================================\nPortal URL: https://demo-erp.itsemranraj.com\nFull Name: ${registeredData.name}\nEmail: ${registeredData.email}\nUsername: ${registeredData.username}\nPassword: ${registeredData.password}\nRole: ${registeredData.role.toUpperCase()}\nDate Created: ${new Date().toLocaleString()}\n======================================\nKeep this file safe and do not share your password.`;
     const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `fixionfuel-credentials-${registeredData.username}.txt`;
+    a.download = `demo-store-credentials-${registeredData.username}.txt`;
     a.click();
     URL.revokeObjectURL(url);
   };
@@ -256,11 +256,11 @@ function LoginForm() {
         <CardHeader className="text-center pb-5">
           <div className="flex justify-center mb-3">
             <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-black text-white font-black text-xl shadow-md overflow-hidden border border-slate-800">
-              <img src="/icons/icon-192.png" alt="FixionFuel" className="w-full h-full object-cover" />
+              <img src="/icons/icon-192.png" alt="Store ERP" className="w-full h-full object-cover" />
             </div>
           </div>
           <div className="flex justify-center mb-2">
-            <StatusBadge status="FixionFuel Portal" variant="indigo" />
+            <StatusBadge status="Live Demo Portal" variant="indigo" />
           </div>
           <CardTitle className="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight">
             {mode === "auth"
@@ -924,7 +924,7 @@ function LoginForm() {
           )}
 
           <p className="mt-6 text-center text-[11px] text-slate-500 font-medium">
-            Dedicated application portal for <span className="text-slate-800 font-mono font-bold">admin.fixionfuel.shop</span>
+            Dedicated application portal for <span className="text-slate-800 font-mono font-bold">itsemranraj.com/sss</span>
           </p>
         </CardContent>
       </Card>

@@ -1,8 +1,8 @@
 [
   {
     "id": "usr_admin_default",
-    "name": "FixionFuel Administrator",
-    "email": "admin@fixionfuel.shop",
+    "name": "Store Admin ERPistrator",
+    "email": "admin@itsemranraj.com/sss",
     "username": "admin",
     "passwordHash": "2a5db6de82e2620776cce172f660e31bf1209f81f30c20088c930256f1e86302",
     "role": "admin",

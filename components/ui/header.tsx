@@ -228,11 +228,11 @@ export function Header() {
               className="flex items-center gap-2.5 sm:gap-3 group lg:hidden"
             >
               <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-black shadow-xs group-hover:scale-105 transition-transform overflow-hidden border border-slate-800 ring-1 ring-violet-500/30">
-                <img src="/icons/icon-192.png" alt="FixionFuel" className="w-full h-full object-cover" />
+                <img src="/icons/icon-192.png" alt="Store ERP" className="w-full h-full object-cover" />
               </div>
               <div className="flex flex-col">
                 <span className="font-black text-sm sm:text-base tracking-wider uppercase text-slate-950 leading-tight">
-                  FIXIONFUEL
+                  STORE ERP
                 </span>
                 <span className="text-[9px] sm:text-[10px] font-extrabold text-slate-400 uppercase tracking-widest">
                   Admin Portal
@@ -337,11 +337,11 @@ export function Header() {
             <div className="p-4 sm:p-5 border-b border-slate-100 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-11 h-11 rounded-2xl bg-black flex items-center justify-center shadow-xs overflow-hidden border border-slate-800 ring-1 ring-violet-500/30">
-                  <img src="/icons/icon-192.png" alt="FixionFuel" className="w-full h-full object-cover" />
+                  <img src="/icons/icon-192.png" alt="Store ERP" className="w-full h-full object-cover" />
                 </div>
                 <div>
                   <span className="font-black text-base uppercase text-slate-950 block leading-tight">
-                    FIXIONFUEL
+                    STORE ERP
                   </span>
                   <span className="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest">
                     Admin Portal
@@ -396,7 +396,7 @@ export function Header() {
               >
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="font-mono text-xs font-extrabold text-slate-900">fixionfuel.shop</span>
+                  <span className="font-mono text-xs font-extrabold text-slate-900">itsemranraj.com/sss</span>
                 </div>
                 <span className="text-slate-400 text-xs">↗</span>
               </a>

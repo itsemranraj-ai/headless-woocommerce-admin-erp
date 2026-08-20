@@ -119,7 +119,7 @@ export function NotificationProvider({ children }: { children: React.ReactNode }
             "Notification" in window &&
             Notification.permission === "granted"
           ) {
-            new Notification("💬 FixionFuel Live Chat", {
+            new Notification("💬 Store ERP Live Chat", {
               body: "New message received from team.",
               icon: "/icons/icon-192.png",
             });

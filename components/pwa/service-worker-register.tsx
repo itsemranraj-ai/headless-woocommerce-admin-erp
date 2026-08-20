@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 
 /**
- * Automatically registers the FixionFuel PWA service worker in supported browsers.
+ * Automatically registers the Store ERP PWA service worker in supported browsers.
  */
 export function ServiceWorkerRegister() {
   useEffect(() => {

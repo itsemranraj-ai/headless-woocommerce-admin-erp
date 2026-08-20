@@ -334,7 +334,7 @@ export const notificationService = {
     ensureVapidConfigured();
 
     const payload: WebNotificationPayload = {
-      title: "⚡ FixionFuel Push Test",
+      title: "⚡ Store ERP Push Test",
       body: "Web Push notifications are working successfully on this device!",
       icon: "/icons/icon-192.png",
       badge: "/icons/badge-72.png",

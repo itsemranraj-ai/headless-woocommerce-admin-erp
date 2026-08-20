@@ -85,7 +85,7 @@ async function sendRawSmtpEmail(
         if (step === 0 && code === 220) {
           // Greeting received, send EHLO
           step = 1;
-          send(`EHLO fixionfuel.shop`);
+          send(`EHLO itsemranraj.com/sss`);
         } else if (step === 1 && code === 250) {
           if (!secure && !isTlsUpgraded && (port === 587 || port === 25)) {
             // Initiate STARTTLS
@@ -117,7 +117,7 @@ async function sendRawSmtpEmail(
 
           // Resend EHLO on encrypted channel
           step = 1;
-          send(`EHLO fixionfuel.shop`);
+          send(`EHLO itsemranraj.com/sss`);
         } else if (step === 3 && code === 334) {
           // Send Username in base64
           step = 4;
@@ -276,7 +276,7 @@ export function extractVariablesFromOrder(order: Partial<Order> & Record<string,
   const trackingNumber = trackingMeta ? String(trackingMeta.value) : "N/A";
 
   return {
-    store_name: "FixionFuel",
+    store_name: "Store ERP",
     customer_name: customerName.trim(),
     customer_email: customerEmail.trim(),
     customer_phone: customerPhone.trim(),
@@ -386,8 +386,8 @@ export class EmailService {
     // 5. Send real email via SMTP
     try {
       const res = await sendRawSmtpEmail(config, {
-        from: config.senderEmail || "orders@fixionfuel.shop",
-        fromName: config.senderName || "FixionFuel",
+        from: config.senderEmail || "orders@itsemranraj.com/sss",
+        fromName: config.senderName || "Store ERP",
         to: payload.to,
         subject: finalSubject,
         html: finalHtml,
@@ -451,12 +451,12 @@ export class EmailService {
     const customHtml = `
 <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #eaeaea; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
   <div style="background-color: #18181b; padding: 32px 24px; text-align: center;">
-    <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 800; letter-spacing: -0.5px;">FixionFuel</h1>
+    <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 800; letter-spacing: -0.5px;">Store ERP</h1>
     <p style="color: #22c55e; margin: 8px 0 0 0; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">✓ Order Completed & Invoiced</p>
   </div>
   <div style="padding: 32px 24px;">
     <h2 style="color: #18181b; font-size: 20px; font-weight: 700; margin-top: 0;">Hi ${customerName},</h2>
-    <p style="color: #52525b; font-size: 15px; line-height: 1.6;">Thank you for shopping with <strong>FixionFuel</strong>! Your order <strong>#${orderId}</strong> has been marked as <strong>Completed</strong>.</p>
+    <p style="color: #52525b; font-size: 15px; line-height: 1.6;">Thank you for shopping with <strong>Store ERP</strong>! Your order <strong>#${orderId}</strong> has been marked as <strong>Completed</strong>.</p>
     
     <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; margin: 24px 0;">
       <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
@@ -483,7 +483,7 @@ export class EmailService {
     <p style="color: #52525b; font-size: 14px; line-height: 1.6;">If you have any questions, require tracking assistance, or need further support, please feel free to reply directly to this email.</p>
     
     <div style="margin-top: 32px; padding-top: 24px; border-top: 1px solid #f4f4f5; text-align: center; color: #94a3b8; font-size: 12px;">
-      <p style="margin: 0;">&copy; FixionFuel • <a href="https://fixionfuel.shop" style="color: #64748b; text-decoration: none;">fixionfuel.shop</a></p>
+      <p style="margin: 0;">&copy; Store ERP • <a href="https://itsemranraj.com/sss" style="color: #64748b; text-decoration: none;">itsemranraj.com/sss</a></p>
     </div>
   </div>
 </div>
@@ -491,7 +491,7 @@ export class EmailService {
 
     return this.sendEmail({
       to: customerEmail,
-      subject: `Official Invoice & Receipt for Order #${orderId} - FixionFuel`,
+      subject: `Official Invoice & Receipt for Order #${orderId} - Store ERP`,
       customHtml,
       orderData: order as any,
       attachments: [
@@ -572,11 +572,11 @@ export class EmailService {
 
     try {
       const res = await sendRawSmtpEmail(config, {
-        from: config.senderEmail || "test@fixionfuel.shop",
-        fromName: "FixionFuel Verifier",
-        to: config.smtpUser.includes("@") ? config.smtpUser : config.senderEmail || "verify@fixionfuel.shop",
+        from: config.senderEmail || "test@itsemranraj.com/sss",
+        fromName: "Store ERP Verifier",
+        to: config.smtpUser.includes("@") ? config.smtpUser : config.senderEmail || "verify@itsemranraj.com/sss",
         subject: "SMTP Connection Verification Ping",
-        html: "<p>FixionFuel SMTP Verification Ping.</p>",
+        html: "<p>Store ERP SMTP Verification Ping.</p>",
       });
 
       return {

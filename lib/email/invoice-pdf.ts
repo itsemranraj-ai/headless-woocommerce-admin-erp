@@ -1,7 +1,7 @@
 import { Order } from "@/types";
 
 /**
- * Pure Node.js Standard PDF-1.4 Invoice Generator for FixionFuel.
+ * Pure Node.js Standard PDF-1.4 Invoice Generator for Store ERP.
  * Creates clean, universally-compatible PDF binary buffers with zero external dependencies.
  */
 
@@ -97,9 +97,9 @@ export function generateInvoicePdf(order: Order): Buffer {
 
   // 1. Top Header Banner (Dark Charcoal)
   fillRect(0, 755, 595.28, 90, 0.094, 0.094, 0.106); // #18181b
-  addText("FIXIONFUEL", 40, 805, "F2", 22, 1, 1, 1);
+  addText("STORE ERP", 40, 805, "F2", 22, 1, 1, 1);
   addText("Official Order Invoice & Receipt", 40, 785, "F1", 10, 0.75, 0.75, 0.78);
-  addText("https://fixionfuel.shop", 40, 770, "F1", 9, 0.55, 0.55, 0.6);
+  addText("https://itsemranraj.com/sss", 40, 770, "F1", 9, 0.55, 0.55, 0.6);
 
   // Status Badge in Header
   fillRect(440, 780, 115, 26, 0.086, 0.639, 0.290); // Emerald green
@@ -222,13 +222,13 @@ export function generateInvoicePdf(order: Order): Buffer {
   strokeRect(40, noteBoxY, 275, totalsBoxH, 0.82, 0.92, 0.85, 1);
   addText("PAYMENT VERIFIED & SETTLED", 55, noteBoxY + 75, "F2", 8.5, 0.086, 0.55, 0.25);
   addText("This receipt serves as official proof of payment.", 55, noteBoxY + 58, "F1", 8, 0.35, 0.35, 0.4);
-  addText("Your order was fulfilled and synchronized via FixionFuel", 55, noteBoxY + 44, "F1", 8, 0.35, 0.35, 0.4);
+  addText("Your order was fulfilled and synchronized via Store ERP", 55, noteBoxY + 44, "F1", 8, 0.35, 0.35, 0.4);
   addText("store systems. For support, reply directly to this invoice.", 55, noteBoxY + 30, "F1", 8, 0.35, 0.35, 0.4);
-  addText("Support Contact: admin@fixionfuel.shop", 55, noteBoxY + 14, "F2", 8, 0.15, 0.15, 0.2);
+  addText("Support Contact: admin@itsemranraj.com/sss", 55, noteBoxY + 14, "F2", 8, 0.15, 0.15, 0.2);
 
   // 7. Page Footer
   drawLine(40, 55, 555.28, 55, 0.88, 0.88, 0.9);
-  addText("Thank you for shopping with FixionFuel • https://fixionfuel.shop", 160, 40, "F2", 8.5, 0.45, 0.45, 0.5);
+  addText("Thank you for shopping with Store ERP • https://itsemranraj.com/sss", 160, 40, "F2", 8.5, 0.45, 0.45, 0.5);
   addText(`Generated on ${new Date().toUTCString()} • Page 1 of 1`, 185, 26, "F1", 7.5, 0.6, 0.6, 0.65);
 
   // Combine stream

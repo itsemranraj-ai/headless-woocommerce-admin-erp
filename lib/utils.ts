@@ -1,5 +1,5 @@
 /**
- * General utility functions for FixionFuel Order Management.
+ * General utility functions for Headless WooCommerce ERP.
  */
 
 /**

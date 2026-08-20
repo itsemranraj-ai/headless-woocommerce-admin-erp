@@ -137,7 +137,7 @@ export default function NewProductPage() {
     { name: "SIZE", options: ["SINGLE", "1/2 KITS (5 VIALS)", "FULL KITS (10 VIALS)"], visible: true, variation: true },
   ]);
   const [attributePresets, setAttributePresets] = useState<Array<{ name: string; options: string[]; productCount?: number }>>([
-    { name: "SIZE (FixionFuel Standard)", options: ["SINGLE", "1/2 KITS (5 VIALS)", "FULL KITS (10 VIALS)"], productCount: 30 },
+    { name: "SIZE (Store ERP Standard)", options: ["SINGLE", "1/2 KITS (5 VIALS)", "FULL KITS (10 VIALS)"], productCount: 30 },
     { name: "SIZE (Kits)", options: ["SINGLE", "1/2 KITS", "FULL KITS"], productCount: 10 },
     { name: "DOSAGE / MG", options: ["5MG", "10MG", "20MG", "50MG", "60MG"], productCount: 8 },
     { name: "VIALS / PACK", options: ["1 Vial", "5 Vials", "10 Vials"], productCount: 5 },
@@ -583,7 +583,7 @@ export default function NewProductPage() {
               Product #{createdProductId} Published Successfully
             </h2>
             <p className="text-xs text-emerald-800 mt-1">
-              The product is now live on your WooCommerce store at fixionfuel.shop.
+              The product is now live on your WooCommerce store at itsemranraj.com/sss.
             </p>
           </div>
           <div className="flex justify-center gap-3 pt-6">
@@ -1239,7 +1239,7 @@ export default function NewProductPage() {
                         </span>
                       </div>
                       <p className="text-[11px] text-indigo-900/80">
-                        Click any preset below to instantly load standard attributes used on FixionFuel:
+                        Click any preset below to instantly load standard attributes used on Store ERP:
                       </p>
                       <div className="flex flex-wrap gap-2 pt-1">
                         {attributePresets.map((preset, pIdx) => (
@@ -1407,7 +1407,7 @@ export default function NewProductPage() {
                         <span className="text-4xl">🧬</span>
                         <h5 className="text-xs font-bold text-slate-800">No Variations Generated Yet</h5>
                         <p className="text-[11px] text-slate-500 max-w-sm mx-auto">
-                          FixionFuel standard attribute <strong>SIZE (SINGLE, 1/2 KITS, FULL KITS)</strong> is ready.
+                          Store ERP standard attribute <strong>SIZE (SINGLE, 1/2 KITS, FULL KITS)</strong> is ready.
                         </p>
                         <button
                           type="button"
@@ -1838,7 +1838,7 @@ export default function NewProductPage() {
                     type="url"
                     value={featuredImageUrl}
                     onChange={(e) => setFeaturedImageUrl(e.target.value)}
-                    placeholder="https://fixionfuel.shop/wp-content/uploads/..."
+                    placeholder="https://itsemranraj.com/sss/wp-content/uploads/..."
                     className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-900"
                   />
                 </div>

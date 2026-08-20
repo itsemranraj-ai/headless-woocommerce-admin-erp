@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { logWhatsAppMessage } from "@/lib/whatsapp/whatsapp-log-store";
 
-const VERIFY_TOKEN = process.env.WHATSAPP_VERIFY_TOKEN || "fixionfuel_whatsapp_verify_token";
+const VERIFY_TOKEN = process.env.WHATSAPP_VERIFY_TOKEN || "demo-store_whatsapp_verify_token";
 
 /**
  * GET Handler: Meta Webhook Verification Challenge

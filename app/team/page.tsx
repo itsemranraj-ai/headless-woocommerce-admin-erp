@@ -27,7 +27,7 @@ function TeamManagementContent() {
   const [searchQuery, setSearchQuery] = useState("");
 
   // Master Passcode State
-  const [masterPasscode, setMasterPasscode] = useState("FixionFuel@Admin2026#");
+  const [masterPasscode, setMasterPasscode] = useState("Store ERP@Admin2026#");
   const [isEditingPasscode, setIsEditingPasscode] = useState(false);
   const [passcodeInput, setPasscodeInput] = useState("");
   const [isSavingPasscode, setIsSavingPasscode] = useState(false);
@@ -463,7 +463,7 @@ function TeamManagementContent() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {filteredUsers.map((u) => {
               const isStaff = u.role === "staff";
-              const isMaster = u.username === "admin" || u.username === "itsemranraj" || u.username === "fixionfuel_admin";
+              const isMaster = u.username === "admin" || u.username === "itsemranraj" || u.username === "demo-store_admin";
               return (
                 <div
                   key={u.id}
@@ -597,7 +597,7 @@ function TeamManagementContent() {
                 </label>
                 <input
                   type="email"
-                  placeholder="e.g. john@fixionfuel.shop"
+                  placeholder="e.g. john@itsemranraj.com/sss"
                   value={newEmail}
                   onChange={(e) => setNewEmail(e.target.value)}
                   className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-3.5 py-2.5 text-xs text-slate-900 font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-slate-900/10"

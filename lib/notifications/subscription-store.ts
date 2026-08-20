@@ -42,7 +42,7 @@ function getWcAuthHeader(): string {
 
 function getWcBaseUrl(): string {
   const { wooCommerce } = getServerEnv();
-  const url = wooCommerce.apiUrl || "https://fixionfuel.shop/wp-json/wc/v3";
+  const url = wooCommerce.apiUrl || "https://itsemranraj.com/sss/wp-json/wc/v3";
   return url.replace(/\/+$/, "");
 }
 
@@ -62,7 +62,7 @@ async function loadSubscriptions(): Promise<StoredSubscription[]> {
     const res = await fetch(`${getWcBaseUrl()}/customers/${PUSH_CUSTOMER_ID}`, {
       headers: {
         Authorization: getWcAuthHeader(),
-        "User-Agent": "FixionFuelAdmin/1.0",
+        "User-Agent": "Store ERPAdmin/1.0",
       },
       cache: "no-store",
     });
@@ -128,7 +128,7 @@ async function persistSubscriptions(subscriptions: StoredSubscription[]): Promis
       headers: {
         Authorization: getWcAuthHeader(),
         "Content-Type": "application/json",
-        "User-Agent": "FixionFuelAdmin/1.0",
+        "User-Agent": "Store ERPAdmin/1.0",
       },
       body: JSON.stringify({
         meta_data: [

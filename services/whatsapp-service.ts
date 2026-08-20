@@ -36,7 +36,7 @@ export function extractWhatsAppVariablesFromOrder(order: Partial<Order> & Record
   const trackingNumber = trackingMeta ? String(trackingMeta.value) : "N/A";
 
   return {
-    store_name: "FixionFuel",
+    store_name: "Store ERP",
     customer_name: customerName.trim(),
     customer_phone: customerPhone.trim(),
     order_id: orderId,
@@ -102,7 +102,7 @@ export class WhatsAppService {
     } else if (payload.customMessage) {
       finalBody = interpolateWhatsAppVariables(payload.customMessage, resolvedVars);
     } else {
-      finalBody = "Order status update from FixionFuel.";
+      finalBody = "Order status update from Store ERP.";
     }
 
     const orderId = resolvedVars.order_id ? parseInt(resolvedVars.order_id, 10) : undefined;
@@ -361,11 +361,11 @@ export class WhatsAppService {
     const orderId = String(order.id || order.number || "0");
     const customerName = `${order.billing?.first_name || ""} ${order.billing?.last_name || ""}`.trim() || "Customer";
     const total = String(order.total || "0.00");
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://admin.fixionfuel.shop";
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://demo-erp.itsemranraj.com";
 
     const customMessage = `Hi ${customerName}! ✨
 
-Your order *#${orderId}* at FixionFuel has been *Completed* and settled!
+Your order *#${orderId}* at Store ERP has been *Completed* and settled!
 
 📄 *Invoice Details:*
 • Invoice No: INV-${orderId}
@@ -375,7 +375,7 @@ Your order *#${orderId}* at FixionFuel has been *Completed* and settled!
 You can download your official PDF invoice here:
 ${baseUrl}/api/orders/${orderId}/invoice
 
-Thank you for shopping with FixionFuel! 🚀`.trim();
+Thank you for shopping with Store ERP! 🚀`.trim();
 
     return this.sendMessage({
       to: customerPhone,
@@ -389,7 +389,7 @@ Thank you for shopping with FixionFuel! 🚀`.trim();
    */
   renderTemplate(template: WhatsAppTemplate, variables?: Record<string, string>): string {
     const defaultVars = {
-      store_name: "FixionFuel",
+      store_name: "Store ERP",
       customer_name: "Alexander Wright",
       order_id: "1058",
       order_total: "295.00",

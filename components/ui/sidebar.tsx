@@ -280,11 +280,11 @@ export function Sidebar() {
       <div className="pt-7 pb-5 px-6">
         <Link href="/" className="flex items-center gap-3.5 group">
           <div className="w-12 h-12 rounded-2xl bg-black flex items-center justify-center shadow-md group-hover:scale-105 transition-transform shrink-0 overflow-hidden border border-slate-800 ring-2 ring-violet-500/20">
-            <img src="/icons/icon-192.png" alt="FixionFuel" className="w-full h-full object-cover" />
+            <img src="/icons/icon-192.png" alt="Store ERP" className="w-full h-full object-cover" />
           </div>
           <div className="flex flex-col">
             <span className="font-black text-lg tracking-wider uppercase text-slate-950 font-sans leading-tight">
-              FIXIONFUEL
+              STORE ERP
             </span>
             <span className="text-[11px] font-extrabold text-slate-400 uppercase tracking-widest mt-0.5">
               Admin Portal
@@ -337,7 +337,7 @@ export function Sidebar() {
           <div className="flex items-center gap-2.5 min-w-0">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
             <span className="truncate font-mono text-[13px] font-extrabold text-slate-900">
-              fixionfuel.shop
+              itsemranraj.com/sss
             </span>
           </div>
           <div className="w-5 h-5 rounded-lg bg-slate-100 group-hover:bg-slate-200 flex items-center justify-center text-slate-400 group-hover:text-slate-700 transition-colors shrink-0">

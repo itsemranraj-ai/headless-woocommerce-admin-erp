@@ -90,7 +90,7 @@ export function interpolateWhatsAppVariables(
   if (!templateText) return "";
 
   const defaults: Record<string, string> = {
-    store_name: "FixionFuel",
+    store_name: "Store ERP",
     customer_name: "Valued Customer",
     customer_phone: "",
     order_id: "",

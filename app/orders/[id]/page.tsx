@@ -488,7 +488,7 @@ export default function OrderDetailPage({
                 {order.billing?.phone && (
                   <a
                     href={`https://wa.me/${String(order.billing.phone).replace(/[^0-9]/g, "")}?text=${encodeURIComponent(
-                      `Hi ${customerName}! ✨\n\nYour order #${order.id} at FixionFuel has been completed.\n\n📄 Invoice No: INV-${order.id}\n💵 Total: $${order.total} USD\n\nDownload your PDF invoice:\nhttps://admin.fixionfuel.shop/api/orders/${order.id}/invoice\n\nThank you for shopping with FixionFuel!`
+                      `Hi ${customerName}! ✨\n\nYour order #${order.id} at Store ERP has been completed.\n\n📄 Invoice No: INV-${order.id}\n💵 Total: $${order.total} USD\n\nDownload your PDF invoice:\nhttps://demo-erp.itsemranraj.com/api/orders/${order.id}/invoice\n\nThank you for shopping with Store ERP!`
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"

@@ -796,7 +796,7 @@ export default function MessagesPage() {
                 {/* Security encryption banner */}
                 <div className="flex justify-center my-2">
                   <div className="px-3.5 py-1.5 rounded-xl bg-[#ffeecd] border border-[#ffd88e] text-[#54411a] text-[11px] font-bold shadow-2xs text-center max-w-md">
-                    🔒 Internal FixionFuel chat between Admin & Field Reps. Real-time synchronized.
+                    🔒 Internal Store ERP chat between Admin & Field Reps. Real-time synchronized.
                   </div>
                 </div>
 
@@ -1067,7 +1067,7 @@ export default function MessagesPage() {
               <div className="w-16 h-16 rounded-full bg-slate-200/70 flex items-center justify-center text-3xl mb-4">
                 💬
               </div>
-              <h3 className="text-base font-black text-slate-700">FixionFuel Live Messenger</h3>
+              <h3 className="text-base font-black text-slate-700">Store ERP Live Messenger</h3>
               <p className="text-xs text-slate-500 mt-1 max-w-sm">
                 Select a sales representative from the left to start a real-time conversation.
               </p>

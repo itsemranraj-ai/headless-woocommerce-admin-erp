@@ -29,7 +29,7 @@ const VARIABLE_HELPERS = [
   { token: "{order_date}", desc: "Formatted Order Date" },
   { token: "{product_name}", desc: "First Product Name" },
   { token: "{product_quantity}", desc: "Product Item Quantity" },
-  { token: "{store_name}", desc: "Store Name (FixionFuel)" },
+  { token: "{store_name}", desc: "Store Name (Store ERP)" },
   { token: "{tracking_number}", desc: "Shipment Tracking ID" },
   { token: "{billing_address}", desc: "Customer Billing Address" },
   { token: "{shipping_address}", desc: "Customer Shipping Address" },
@@ -465,7 +465,7 @@ export default function EmailNotificationsPage() {
   // Interpolated Preview for Editor
   const previewData = useMemo(() => {
     const sampleVars: Record<string, string> = {
-      store_name: "FixionFuel",
+      store_name: "Store ERP",
       customer_name: "Alexander Wright",
       customer_email: "alexander@example.com",
       customer_phone: "+1 (555) 234-5678",
@@ -716,7 +716,7 @@ export default function EmailNotificationsPage() {
                       type="text"
                       value={senderName}
                       onChange={(e) => setSenderName(e.target.value)}
-                      placeholder="FixionFuel Order Desk"
+                      placeholder="Store ERP Order Desk"
                       className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-sm font-bold text-slate-900 focus:outline-hidden focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600"
                     />
                   </div>
@@ -729,7 +729,7 @@ export default function EmailNotificationsPage() {
                       type="email"
                       value={senderEmail}
                       onChange={(e) => setSenderEmail(e.target.value)}
-                      placeholder="orders@fixionfuel.shop"
+                      placeholder="orders@itsemranraj.com/sss"
                       className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-sm font-bold text-slate-900 focus:outline-hidden focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600"
                     />
                   </div>
@@ -772,7 +772,7 @@ export default function EmailNotificationsPage() {
                       type="text"
                       value={smtpUser}
                       onChange={(e) => setSmtpUser(e.target.value)}
-                      placeholder="user@fixionfuel.shop"
+                      placeholder="user@itsemranraj.com/sss"
                       className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-sm font-bold text-slate-900 focus:outline-hidden focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600"
                     />
                   </div>
@@ -1106,7 +1106,7 @@ export default function EmailNotificationsPage() {
                   let subject = tpl.subject;
                   let html = tpl.bodyHtml;
                   const sampleVars: Record<string, string> = {
-                    store_name: "FixionFuel",
+                    store_name: "Store ERP",
                     customer_name: "Alexander Wright",
                     customer_email: testEmailTo || "alexander@example.com",
                     customer_phone: "+1 (555) 234-5678",

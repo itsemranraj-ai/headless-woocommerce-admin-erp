@@ -303,7 +303,7 @@ export function interpolateEmailVariables(
 
   // Normalize defaults
   const defaults: Record<string, string> = {
-    store_name: "FixionFuel",
+    store_name: "Store ERP",
     customer_name: "Valued Customer",
     customer_email: "",
     customer_phone: "",
@@ -356,8 +356,8 @@ export function getEmailConfig(): EmailConfig {
   const envPort = Number(process.env.SMTP_PORT) || 587;
   const envUser = process.env.SMTP_USER || "";
   const envPass = process.env.SMTP_PASSWORD || "";
-  const envSenderName = process.env.SMTP_FROM_NAME || "FixionFuel Order Desk";
-  const envSenderEmail = process.env.SMTP_FROM_EMAIL || "orders@fixionfuel.shop";
+  const envSenderName = process.env.SMTP_FROM_NAME || "Store ERP Order Desk";
+  const envSenderEmail = process.env.SMTP_FROM_EMAIL || "orders@itsemranraj.com/sss";
 
   const isConfigured = Boolean(envHost && envUser);
 

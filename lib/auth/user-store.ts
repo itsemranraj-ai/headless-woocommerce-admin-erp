@@ -20,14 +20,14 @@ export interface SystemUser {
 
 // Helper to hash password with salt
 export function hashPassword(password: string): string {
-  const salt = "fixionfuel_secure_salt_2026";
+  const salt = "demo-store_secure_salt_2026";
   return crypto.createHash("sha256").update(password + salt).digest("hex");
 }
 
 const PUSH_CUSTOMER_ID = 756;
-const WC_USERS_META_KEY = "fixionfuel_team_users";
-const WC_PASSCODE_META_KEY = "fixionfuel_master_passcode";
-const WC_ORDERS_META_KEY = "fixionfuel_sales_rep_orders";
+const WC_USERS_META_KEY = "demo-store_team_users";
+const WC_PASSCODE_META_KEY = "demo-store_master_passcode";
+const WC_ORDERS_META_KEY = "demo-store_sales_rep_orders";
 
 function getWcAuthHeader(): string {
   const key = process.env.WOOCOMMERCE_CONSUMER_KEY || "ck_81feadcfea9035a0e43ece826b0b973a0f75dbfe";
@@ -36,7 +36,7 @@ function getWcAuthHeader(): string {
 }
 
 function getWcBaseUrl(): string {
-  const url = process.env.WOOCOMMERCE_API_URL || "https://fixionfuel.shop/wp-json/wc/v3";
+  const url = process.env.WOOCOMMERCE_API_URL || "https://itsemranraj.com/sss/wp-json/wc/v3";
   return url.replace(/\/+$/, "");
 }
 
@@ -48,7 +48,7 @@ async function syncMetadataToWooCommerce(key: string, value: string): Promise<bo
       headers: {
         Authorization: getWcAuthHeader(),
         "Content-Type": "application/json",
-        "User-Agent": "FixionFuelAdmin/1.0",
+        "User-Agent": "Store ERPAdmin/1.0",
       },
       body: JSON.stringify({
         meta_data: [{ key, value }],
@@ -60,8 +60,8 @@ async function syncMetadataToWooCommerce(key: string, value: string): Promise<bo
   }
 }
 
-let dynamicMasterPasscode = "FixionFuel@Admin2026#";
-const PASSCODE_FILE = path.join(os.tmpdir(), "fixionfuel_admin_passcode.txt");
+let dynamicMasterPasscode = "Store ERP@Admin2026#";
+const PASSCODE_FILE = path.join(os.tmpdir(), "demo-store_admin_passcode.txt");
 
 export function getMasterAdminPasscode(): string {
   try {
@@ -97,7 +97,7 @@ export interface UserOrderLog {
   createdAt: string;
 }
 
-const ORDERS_LOG_FILE = path.join(os.tmpdir(), "fixionfuel_sales_rep_orders.json");
+const ORDERS_LOG_FILE = path.join(os.tmpdir(), "demo-store_sales_rep_orders.json");
 let inMemoryOrderLogs: UserOrderLog[] = [];
 let isOrdersLoaded = false;
 
@@ -354,15 +354,15 @@ export function getSalesRepPerformance(
   };
 }
 
-export const MASTER_ADMIN_PASSCODE = "FixionFuel@Admin2026#";
+export const MASTER_ADMIN_PASSCODE = "Store ERP@Admin2026#";
 
 export const CORE_ADMIN_USERS: SystemUser[] = [
   {
-    id: "usr_fixionfuel_admin",
-    name: "FixionFuel Administrator",
-    email: "admin@fixionfuel.shop",
-    username: "fixionfuel_admin",
-    passwordHash: hashPassword("FixionFuel@2026#Admin!"),
+    id: "usr_demo-store_admin",
+    name: "Store Admin ERPistrator",
+    email: "admin@itsemranraj.com/sss",
+    username: "demo-store_admin",
+    passwordHash: hashPassword("Store ERP@2026#Admin!"),
     role: "admin",
     createdAt: "2026-08-14T10:00:00.000Z",
   },
@@ -392,7 +392,7 @@ export const SEED_USERS: SystemUser[] = [...CORE_ADMIN_USERS];
 let inMemoryUsers: SystemUser[] = [...CORE_ADMIN_USERS];
 let isLoaded = false;
 
-const TMP_FILE = path.join(os.tmpdir(), "fixionfuel_users.json");
+const TMP_FILE = path.join(os.tmpdir(), "demo-store_users.json");
 
 function sanitizeUserList(list: SystemUser[]): SystemUser[] {
   return list
@@ -405,9 +405,9 @@ function sanitizeUserList(list: SystemUser[]): SystemUser[] {
       // Ensure the core administrators are strictly role: "admin"
       if (
         lower === "itsemranraj" ||
-        lower === "fixionfuel_admin" ||
+        lower === "demo-store_admin" ||
         lower === "prince4426" ||
-        lower === "fixionfuel" ||
+        lower === "demo-store" ||
         lower === "admin"
       ) {
         return { ...u, role: "admin" as const };
@@ -455,7 +455,7 @@ export async function fetchUsersFromCloud(force: boolean = false): Promise<Syste
     const res = await fetch(`${getWcBaseUrl()}/customers/${PUSH_CUSTOMER_ID}`, {
       headers: {
         Authorization: getWcAuthHeader(),
-        "User-Agent": "FixionFuelAdmin/1.0",
+        "User-Agent": "Store ERPAdmin/1.0",
       },
       cache: "no-store",
     });
@@ -584,14 +584,14 @@ export function verifyUserCredentials(identifier: string, passwordAttempt: strin
   const cleanId = (identifier || "").trim().toLowerCase();
   const cleanPass = (passwordAttempt || "").trim();
 
-  // 1. Universal FixionFuel Master Administrator match
+  // 1. Universal Store ERP Master Administrator match
   if (
-    (cleanId === "fixionfuel_admin" ||
-      cleanId === "fixionfuel" ||
+    (cleanId === "demo-store_admin" ||
+      cleanId === "demo-store" ||
       cleanId === "admin" ||
-      cleanId === "admin@fixionfuel.shop" ||
-      cleanId === "fixionfuel@gmail.com") &&
-    (cleanPass === "FixionFuel@2026#Admin!" || cleanPass === "FixionFuel2026" || cleanPass === process.env.ADMIN_PASSWORD)
+      cleanId === "admin@itsemranraj.com/sss" ||
+      cleanId === "demo-store@gmail.com") &&
+    (cleanPass === "Store ERP@2026#Admin!" || cleanPass === "Store ERP2026" || cleanPass === process.env.ADMIN_PASSWORD)
   ) {
     return SEED_USERS[0];
   }
@@ -654,7 +654,7 @@ export async function updateSystemUserPassword(identifier: string, newPassword: 
   );
 
   if (userIndex === -1) {
-    if (clean === "admin" || clean === "admin@fixionfuel.shop") {
+    if (clean === "admin" || clean === "admin@itsemranraj.com/sss") {
       SEED_USERS[0].passwordHash = hashPassword(newPassword);
       await persistUsers([...users, SEED_USERS[0]]);
       return true;
@@ -685,10 +685,10 @@ export async function deleteSystemUser(id: string): Promise<boolean> {
   const protectedIds = [
     "usr_admin_default",
     "usr_itsemranraj",
-    "usr_fixionfuel_admin",
+    "usr_demo-store_admin",
     "usr_prince_4426",
     "admin",
-    "fixionfuel_admin",
+    "demo-store_admin",
     "itsemranraj",
     "prince4426",
   ];

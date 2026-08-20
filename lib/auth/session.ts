@@ -1,5 +1,5 @@
 /**
- * Session Manager for FixionFuel Admin Application.
+ * Session Manager for Store Admin ERP Application.
  *
  * Implements HMAC-SHA256 stateless session tokens using Node.js crypto.
  * Cookie properties enforce httpOnly, sameSite lax, and secure flags.
@@ -27,7 +27,7 @@ export async function signSessionToken(
   durationSec: number = DEFAULT_SESSION_DURATION_SEC
 ): Promise<string> {
   const { auth } = getServerEnv();
-  const secret = auth.secret || "dev_fixionfuel_auth_secret_key_32_bytes";
+  const secret = auth.secret || "dev_demo-store_auth_secret_key_32_bytes";
 
   const now = Math.floor(Date.now() / 1000);
   const fullPayload: SessionPayload = {
@@ -62,7 +62,7 @@ export async function verifySessionToken(token: string): Promise<SessionPayload 
   const dataToVerify = `${encodedHeader}.${encodedPayload}`;
 
   const { auth } = getServerEnv();
-  const secret = auth.secret || "dev_fixionfuel_auth_secret_key_32_bytes";
+  const secret = auth.secret || "dev_demo-store_auth_secret_key_32_bytes";
 
   try {
     const expectedSignature = crypto

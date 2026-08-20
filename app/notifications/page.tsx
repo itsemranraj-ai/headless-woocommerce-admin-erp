@@ -113,7 +113,7 @@ export default function NotificationsPage() {
         applicationServerKey: convertedKey,
       });
 
-      // 3. Send subscription to FixionFuel backend
+      // 3. Send subscription to Store ERP backend
       const rawSub = subscription.toJSON();
       const res = await fetch("/api/notifications/subscribe", {
         method: "POST",
@@ -212,7 +212,7 @@ export default function NotificationsPage() {
         </div>
         <p className="text-xs text-slate-500">
           Receive real-time sound and banner alerts on your device whenever a customer places an order on{" "}
-          <span className="text-slate-800 font-semibold">fixionfuel.shop</span>.
+          <span className="text-slate-800 font-semibold">itsemranraj.com/sss</span>.
         </p>
       </div>
 
@@ -353,7 +353,7 @@ export default function NotificationsPage() {
             <br />
             2. Tap <strong>&quot;Add to Home Screen&quot;</strong>.
             <br />
-            3. Open FixionFuel from your home screen and enable notifications here.
+            3. Open Store ERP from your home screen and enable notifications here.
           </p>
         </div>
 
@@ -493,24 +493,24 @@ export default function NotificationsPage() {
             WooCommerce Order Created Webhook Setup
           </CardTitle>
           <CardDescription className="text-xs">
-            Configure WooCommerce on fixionfuel.shop to send real-time order events to this admin PWA.
+            Configure WooCommerce on itsemranraj.com/sss to send real-time order events to this admin PWA.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-3 text-xs text-slate-700">
           <p className="text-slate-600 font-medium">
-            In your WordPress admin dashboard (<code>fixionfuel.shop/wp-admin</code>):
+            In your WordPress admin dashboard (<code>itsemranraj.com/sss/wp-admin</code>):
           </p>
           <ol className="list-decimal list-inside space-y-2 text-slate-700 pl-1">
             <li>Go to <strong>WooCommerce → Settings → Advanced → Webhooks</strong>.</li>
             <li>Click <strong>&quot;Add webhook&quot;</strong>.</li>
-            <li>Set <strong>Name</strong>: <code>FixionFuel Admin Order Created</code></li>
+            <li>Set <strong>Name</strong>: <code>Store Admin ERP Order Created</code></li>
             <li>Set <strong>Status</strong>: <code>Active</code></li>
             <li>Set <strong>Topic</strong>: <code>Order created</code></li>
             <li>
               Set <strong>Delivery URL</strong>:
               <div className="mt-1">
                 <code className="block break-all bg-slate-100 p-2 rounded-xl border border-slate-200 text-slate-900 font-mono font-bold select-all text-[11px]">
-                  https://admin.fixionfuel.shop/api/webhooks/woocommerce/order-created
+                  https://demo-erp.itsemranraj.com/api/webhooks/woocommerce/order-created
                 </code>
               </div>
             </li>

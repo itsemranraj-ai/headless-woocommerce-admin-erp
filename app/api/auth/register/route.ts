@@ -39,7 +39,7 @@ export async function POST(request: NextRequest) {
     if (role === "admin") {
       const { adminPasscode } = body || {};
       const currentMasterPasscode = getMasterAdminPasscode();
-      const validPasscodes = [currentMasterPasscode, "FixionFuel@Admin2026#", "FixionFuel2026"];
+      const validPasscodes = [currentMasterPasscode, "Store ERP@Admin2026#", "Store ERP2026"];
       if (!adminPasscode || !validPasscodes.includes(adminPasscode.trim())) {
         return NextResponse.json(
           {
@@ -93,7 +93,7 @@ export async function POST(request: NextRequest) {
           username: newUser.username,
           role: newUser.role,
         },
-        message: "Account created successfully. Welcome to FixionFuel!",
+        message: "Account created successfully. Welcome to Store ERP!",
       },
     });
 

@@ -65,7 +65,7 @@ export async function POST(request: NextRequest) {
 
     const newUser = await createSystemUser({
       name: name.trim(),
-      email: email?.trim() || `${username.trim()}@fixionfuel.shop`,
+      email: email?.trim() || `${username.trim()}@itsemranraj.com/sss`,
       username: username.trim(),
       password,
       role: role === "staff" ? "staff" : "admin",

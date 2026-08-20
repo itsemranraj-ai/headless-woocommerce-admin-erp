@@ -16,7 +16,7 @@ export async function GET() {
     const { items: products } = await woocommerceService.getProducts({ perPage: 50 });
 
     const attrMap: Record<string, { options: Set<string>; count: number }> = {
-      // FixionFuel Store Standard Presets
+      // Store ERP Store Standard Presets
       "SIZE (Standard Kits)": {
         options: new Set(["SINGLE", "1/2 KITS (5 VIALS)", "FULL KITS (10 VIALS)"]),
         count: 30,

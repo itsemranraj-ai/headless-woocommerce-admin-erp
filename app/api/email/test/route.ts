@@ -73,7 +73,7 @@ export async function POST(request: NextRequest) {
       }
 
       const sampleVariables: Record<string, string> = {
-        store_name: "FixionFuel",
+        store_name: "Store ERP",
         customer_name: "Alexander Wright",
         customer_email: to || "customer@example.com",
         customer_phone: "+1 (555) 234-5678",

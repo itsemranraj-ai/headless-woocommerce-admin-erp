@@ -207,7 +207,7 @@ export function getConversationsList(currentUser: { username: string; role: stri
   } else {
     // Sales Rep sees Admin Support
     const admins = allUsers.filter((u: SystemUser) => u.role === "admin" || u.role === "manager");
-    const mainAdmin = admins[0] || { username: "fixionfuel_admin", name: "FixionFuel Admin Support", role: "admin" as const };
+    const mainAdmin = admins[0] || { username: "demo-store_admin", name: "Store Admin ERP Support", role: "admin" as const };
 
     const convMessages = getMessagesBetween(lowerCurrent, mainAdmin.username.toLowerCase());
     const lastMsg = convMessages.length > 0 ? convMessages[convMessages.length - 1] : undefined;
@@ -222,7 +222,7 @@ export function getConversationsList(currentUser: { username: string; role: stri
 
     summaries.push({
       username: mainAdmin.username,
-      name: "FixionFuel Admin Support",
+      name: "Store Admin ERP Support",
       role: "admin",
       avatarInitials: "FF",
       lastMessage: formatLastMessagePreview(lastMsg),

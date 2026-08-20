@@ -13,7 +13,7 @@ export default function NotFound() {
             Resource Not Found
           </CardTitle>
           <CardDescription>
-            The requested page or endpoint is not available in the current FixionFuel Order Management build.
+            The requested page or endpoint is not available in the current Headless WooCommerce ERP build.
           </CardDescription>
         </CardHeader>
         <CardContent>

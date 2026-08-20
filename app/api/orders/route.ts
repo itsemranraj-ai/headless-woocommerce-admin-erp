@@ -168,7 +168,7 @@ export async function POST(request: NextRequest) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!billing.email || typeof billing.email !== "string" || !billing.email.trim() || !emailRegex.test(billing.email.trim())) {
       const phoneDigits = (billing.phone || "").replace(/[^0-9]/g, "");
-      billing.email = `customer_${phoneDigits || Date.now()}@fixionfuel.shop`;
+      billing.email = `customer_${phoneDigits || Date.now()}@itsemranraj.com/sss`;
     }
 
     const shipping = { ...(body.shipping || billing) };

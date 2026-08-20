@@ -3,20 +3,20 @@
  */
 
 export const siteConfig = {
-  name: "FixionFuel Order Management",
-  shortName: "FixionFuel",
+  name: "Headless WooCommerce ERP",
+  shortName: "Store ERP",
   description:
-    "Real-time order & product management PWA for FixionFuel WooCommerce store.",
-  appDomain: "admin.fixionfuel.shop",
-  storeDomain: "fixionfuel.shop",
-  appUrl: process.env.NEXT_PUBLIC_APP_URL || "https://admin.fixionfuel.shop",
-  storeUrl: process.env.NEXT_PUBLIC_STORE_URL || "https://fixionfuel.shop",
+    "Real-time order & product management PWA for Store ERP WooCommerce store.",
+  appDomain: "demo-erp.itsemranraj.com",
+  storeDomain: "itsemranraj.com/sss",
+  appUrl: process.env.NEXT_PUBLIC_APP_URL || "https://demo-erp.itsemranraj.com",
+  storeUrl: process.env.NEXT_PUBLIC_STORE_URL || "https://itsemranraj.com/sss",
   version: "0.1.0-foundation",
   themeColor: "#0f172a",
   backgroundColor: "#020617",
   links: {
-    store: "https://fixionfuel.shop",
-    admin: "https://admin.fixionfuel.shop",
+    store: "https://itsemranraj.com/sss",
+    admin: "https://demo-erp.itsemranraj.com",
   },
   navigation: [
     {

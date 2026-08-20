@@ -1,5 +1,5 @@
 /**
- * Core type exports for FixionFuel Order Management.
+ * Core type exports for Headless WooCommerce ERP.
  */
 
 export * from "./woocommerce";

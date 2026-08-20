@@ -1,5 +1,5 @@
 /**
- * Image upload utility for FixionFuel Admin.
+ * Image upload utility for Store Admin ERP.
  * Handles uploading local image buffers/base64 strings to public CDN
  * so WooCommerce can ingest them into WordPress wp-content/uploads/.
  */

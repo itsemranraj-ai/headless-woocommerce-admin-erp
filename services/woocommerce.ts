@@ -1,5 +1,5 @@
 /**
- * WooCommerce REST API Service Layer for FixionFuel Admin Application.
+ * WooCommerce REST API Service Layer for Store Admin ERP Application.
  *
  * Implements server-side communication for Orders & Products with WooCommerce REST API v3.
  *
@@ -68,11 +68,11 @@ export class WooCommerceApiError extends Error {
 function getValidatedConfig() {
   const { wooCommerce } = getServerEnv();
 
-  const rawUrl = wooCommerce.apiUrl || "https://fixionfuel.shop/wp-json/wc/v3";
+  const rawUrl = wooCommerce.apiUrl || "https://itsemranraj.com/sss/wp-json/wc/v3";
   const rawKey = wooCommerce.consumerKey || "";
   const rawSecret = wooCommerce.consumerSecret || "";
 
-  const apiUrl = (rawUrl.includes("your-store-domain") ? "https://fixionfuel.shop/wp-json/wc/v3" : rawUrl).replace(/\/+$/, "");
+  const apiUrl = (rawUrl.includes("your-store-domain") ? "https://itsemranraj.com/sss/wp-json/wc/v3" : rawUrl).replace(/\/+$/, "");
   const consumerKey = (!rawKey || rawKey.includes("placeholder"))
     ? "ck_81feadcfea9035a0e43ece826b0b973a0f75dbfe"
     : rawKey;
@@ -208,7 +208,7 @@ async function wcFetch<T>(
     Authorization: authHeader,
     "Content-Type": "application/json",
     Accept: "application/json",
-    "User-Agent": "FixionFuelAdmin/1.0",
+    "User-Agent": "Store ERPAdmin/1.0",
   };
 
   let response: Response | null = null;
@@ -257,7 +257,7 @@ async function wcFetch<T>(
     let message = errorData?.message || "";
     if (!message) {
       if (rawText.toLowerCase().includes("database connection") || rawText.toLowerCase().includes("error establishing")) {
-        message = "The WooCommerce store database at fixionfuel.shop is temporarily reconnecting. Please retry in a few seconds.";
+        message = "The WooCommerce store database at itsemranraj.com/sss is temporarily reconnecting. Please retry in a few seconds.";
       } else if (response?.status === 403 || rawText.toLowerCase().includes("bot verification")) {
         message = "Store server rate limit reached. Reconnecting automatically...";
       } else {

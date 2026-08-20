@@ -1,5 +1,5 @@
 /**
- * Environment configuration helper for FixionFuel Order Management.
+ * Environment configuration helper for Headless WooCommerce ERP.
  *
  * Enforces strict separation between server-only privileged credentials
  * and public client-safe configurations.
@@ -41,9 +41,9 @@ export interface ServerEnv extends PublicEnv {
  */
 export function getPublicEnv(): PublicEnv {
   return {
-    appName: process.env.NEXT_PUBLIC_APP_NAME || "FixionFuel Order Management",
-    appUrl: process.env.NEXT_PUBLIC_APP_URL || "https://admin.fixionfuel.shop",
-    storeUrl: process.env.NEXT_PUBLIC_STORE_URL || "https://fixionfuel.shop",
+    appName: process.env.NEXT_PUBLIC_APP_NAME || "Headless WooCommerce ERP",
+    appUrl: process.env.NEXT_PUBLIC_APP_URL || "https://demo-erp.itsemranraj.com",
+    storeUrl: process.env.NEXT_PUBLIC_STORE_URL || "https://itsemranraj.com/sss",
     vapidPublicKey: process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY || process.env.VAPID_PUBLIC_KEY || DEFAULT_VAPID_PUBLIC_KEY,
   };
 }
@@ -64,14 +64,14 @@ export function getServerEnv(): ServerEnv {
   return {
     ...publicEnv,
     wooCommerce: {
-      apiUrl: process.env.WOOCOMMERCE_API_URL || "https://fixionfuel.shop/wp-json/wc/v3",
+      apiUrl: process.env.WOOCOMMERCE_API_URL || "https://itsemranraj.com/sss/wp-json/wc/v3",
       consumerKey: process.env.WOOCOMMERCE_CONSUMER_KEY || "ck_81feadcfea9035a0e43ece826b0b973a0f75dbfe",
       consumerSecret: process.env.WOOCOMMERCE_CONSUMER_SECRET || "cs_6ad11d2d510d554139f7e757cf4ae98dcf8b3b5f",
       webhookSecret: process.env.WOOCOMMERCE_WEBHOOK_SECRET || "eb037def126b57f94dfbe6e266e0b25269dc58d52c75833ae99bd670adf14b1f",
     },
     auth: {
       secret: process.env.AUTH_SECRET || "6ef6daf8f2b509d161b7ad9d5adeef65552cd40f6459e270d7f0319893afa824",
-      url: process.env.AUTH_URL || "https://admin.fixionfuel.shop",
+      url: process.env.AUTH_URL || "https://demo-erp.itsemranraj.com",
       adminUsername: process.env.ADMIN_USERNAME || "admin",
       adminPassword: process.env.ADMIN_PASSWORD || "admin12345",
     },

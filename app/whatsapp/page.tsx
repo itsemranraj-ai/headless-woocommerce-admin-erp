@@ -23,7 +23,7 @@ const VARIABLE_HELPERS = [
   { token: "{order_total}", desc: "Order Total ($)" },
   { token: "{order_status}", desc: "Current Order Status" },
   { token: "{order_date}", desc: "Order Date Placed" },
-  { token: "{store_name}", desc: "Store Name (FixionFuel)" },
+  { token: "{store_name}", desc: "Store Name (Store ERP)" },
   { token: "{tracking_number}", desc: "Shipment Tracking ID" },
 ];
 
@@ -425,7 +425,7 @@ export default function WhatsAppPage() {
   // Live WhatsApp Bubble Preview
   const previewText = useMemo(() => {
     const sampleVars: Record<string, string> = {
-      store_name: "FixionFuel",
+      store_name: "Store ERP",
       customer_name: "Alexander Wright",
       customer_phone: "+1 (555) 234-5678",
       order_id: "1058",
@@ -1035,7 +1035,7 @@ export default function WhatsAppPage() {
 
                   let text = tpl.content;
                   const sampleVars: Record<string, string> = {
-                    store_name: "FixionFuel",
+                    store_name: "Store ERP",
                     customer_name: "Alexander Wright",
                     customer_phone: testPhoneTo || "+1 (555) 234-5678",
                     order_id: "1058",
