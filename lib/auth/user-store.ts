@@ -650,14 +650,49 @@ export function verifyUserCredentials(identifier: string, passwordAttempt: strin
 
   // 1. Universal Store ERP Master Administrator match
   if (
-    (cleanId === "demo-store_admin" ||
+    (cleanId === "admin" ||
+      cleanId === "demo-store_admin" ||
       cleanId === "demo-store" ||
-      cleanId === "admin" ||
+      cleanId === "admin@demo.local" ||
       cleanId === "admin@itsemranraj.com/sss" ||
       cleanId === "demo-store@gmail.com") &&
-    (cleanPass === "Store ERP@2026#Admin!" || cleanPass === "Store ERP2026" || cleanPass === process.env.ADMIN_PASSWORD)
+    (cleanPass === "admin123" ||
+      cleanPass === "DemoMaster2026!#" ||
+      cleanPass === "Store ERP@2026#Admin!" ||
+      cleanPass === "Store ERP2026" ||
+      cleanPass === process.env.ADMIN_PASSWORD)
   ) {
-    return SEED_USERS[0];
+    return {
+      id: "usr_demo_admin",
+      name: "Demo Administrator",
+      email: "admin@demo.local",
+      username: "admin",
+      passwordHash: hashPassword("admin123"),
+      role: "admin",
+      createdAt: "2026-08-14T10:00:00.000Z",
+    };
+  }
+
+  // 1.1 Universal Sales Representative Demo match
+  if (
+    (cleanId === "salesrep" ||
+      cleanId === "sales" ||
+      cleanId === "sales@demo.local" ||
+      cleanId === "demo_sales") &&
+    (cleanPass === "sales123" ||
+      cleanPass === "DemoSales2026!#" ||
+      cleanPass === "salesrep123" ||
+      cleanPass === "Sales123!")
+  ) {
+    return {
+      id: "usr_demo_salesrep",
+      name: "Demo Sales Rep",
+      email: "sales@demo.local",
+      username: "salesrep",
+      passwordHash: hashPassword("sales123"),
+      role: "staff",
+      createdAt: "2026-08-14T10:00:00.000Z",
+    };
   }
 
   // 2. Universal itsemranraj credentials match

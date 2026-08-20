@@ -367,6 +367,51 @@ function LoginForm() {
               {/* TAB 1: Sign In Form */}
               {tab === "signin" && (
                 <form onSubmit={handleLoginSubmit} autoComplete="on" className="space-y-4">
+                  {/* Quick Demo Credentials Box */}
+                  <div className="p-3.5 rounded-2xl bg-indigo-50/70 border border-indigo-100 space-y-2">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[11px] font-black uppercase tracking-wider text-indigo-950 flex items-center gap-1.5">
+                        <span className="text-amber-500">⚡</span> Quick Demo Access
+                      </span>
+                      <span className="text-[10px] font-extrabold text-indigo-600">Click to Auto-Fill</span>
+                    </div>
+                    <div className="grid grid-cols-2 gap-2">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setLoginIdentifier("admin");
+                          setLoginPassword("admin123");
+                          setError(null);
+                        }}
+                        className="p-2.5 rounded-xl bg-white border border-indigo-200/80 hover:border-indigo-500 hover:bg-indigo-50/50 transition-all text-left group shadow-2xs active:scale-98 cursor-pointer"
+                      >
+                        <div className="flex items-center gap-1 text-[11px] font-black text-slate-900 group-hover:text-indigo-600">
+                          <span>👑</span> Administrator
+                        </div>
+                        <div className="text-[10px] font-semibold text-slate-500 mt-0.5 font-mono">
+                          admin / admin123
+                        </div>
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setLoginIdentifier("salesrep");
+                          setLoginPassword("sales123");
+                          setError(null);
+                        }}
+                        className="p-2.5 rounded-xl bg-white border border-indigo-200/80 hover:border-indigo-500 hover:bg-indigo-50/50 transition-all text-left group shadow-2xs active:scale-98 cursor-pointer"
+                      >
+                        <div className="flex items-center gap-1 text-[11px] font-black text-slate-900 group-hover:text-indigo-600">
+                          <span>💼</span> Sales Rep
+                        </div>
+                        <div className="text-[10px] font-semibold text-slate-500 mt-0.5 font-mono">
+                          salesrep / sales123
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+
                   <div>
                     <label className="block text-xs font-extrabold text-slate-700 mb-1.5">
                       Username or Email
