@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { getSession, SESSION_COOKIE_NAME } from "@/lib/auth/session";
-import { findUserByUsernameOrEmail, fetchUsersFromCloud } from "@/lib/auth/user-store";
+import { findUserByUsernameOrEmail, fetchUsersFromCloud, ensureSessionUserExists } from "@/lib/auth/user-store";
 import { cookies } from "next/headers";
 
 export async function GET() {
@@ -16,10 +16,9 @@ export async function GET() {
   // Ensure cloud users are loaded across serverless instances
   await fetchUsersFromCloud();
 
-  // Verify that the user still exists in the user database (has not been deleted by admin)
-  // If not found in memory, ensure session user exists from verified JWT payload
+  // Verify that the user exists in user database or restore from verified JWT payload
+  let existingUser = findUserByUsernameOrEmail(session.username);
   if (!existingUser) {
-    const { ensureSessionUserExists } = await import("@/lib/auth/user-store");
     existingUser = ensureSessionUserExists(session);
   }
 
