@@ -26,9 +26,10 @@ async function sendRawSmtpEmail(
     }>;
   }
 ): Promise<{ success: boolean; messageId: string; response: string }> {
-  const host = config.smtpHost;
-  const port = config.smtpPort || (config.smtpSecure ? 465 : 587);
-  const secure = config.smtpSecure || port === 465;
+  const host = (config.smtpHost || "smtp.gmail.com").trim();
+  const port = Number(config.smtpPort) || (config.smtpSecure ? 465 : 587);
+  const secure = port === 465;
+  const clientDomain = host.includes(".") ? host.split(".").slice(-2).join(".") : "localhost";
   const user = config.smtpUser;
   const pass = config.smtpPassword || "";
 
@@ -85,7 +86,7 @@ async function sendRawSmtpEmail(
         if (step === 0 && code === 220) {
           // Greeting received, send EHLO
           step = 1;
-          send(`EHLO itsemranraj.com/sss`);
+          send(`EHLO ${clientDomain}`);
         } else if (step === 1 && code === 250) {
           if (!secure && !isTlsUpgraded && (port === 587 || port === 25)) {
             // Initiate STARTTLS
@@ -117,7 +118,7 @@ async function sendRawSmtpEmail(
 
           // Resend EHLO on encrypted channel
           step = 1;
-          send(`EHLO itsemranraj.com/sss`);
+          send(`EHLO ${clientDomain}`);
         } else if (step === 3 && code === 334) {
           // Send Username in base64
           step = 4;
@@ -571,12 +572,15 @@ export class EmailService {
     }
 
     try {
+      const fromEmail = (config.senderEmail || config.smtpUser || "orders@itsemranraj.com").trim();
+      const toEmail = (config.smtpUser || config.senderEmail || "verify@itsemranraj.com").trim();
+
       const res = await sendRawSmtpEmail(config, {
-        from: config.senderEmail || "test@itsemranraj.com/sss",
-        fromName: "Store ERP Verifier",
-        to: config.smtpUser.includes("@") ? config.smtpUser : config.senderEmail || "verify@itsemranraj.com/sss",
+        from: fromEmail,
+        fromName: config.senderName || "Store ERP Verifier",
+        to: toEmail,
         subject: "SMTP Connection Verification Ping",
-        html: "<p>Store ERP SMTP Verification Ping.</p>",
+        html: "<p>Store ERP SMTP Connection Verified Successfully.</p>",
       });
 
       return {

@@ -756,7 +756,12 @@ export default function EmailNotificationsPage() {
                     <input
                       type="number"
                       value={smtpPort}
-                      onChange={(e) => setSmtpPort(parseInt(e.target.value, 10) || 587)}
+                      onChange={(e) => {
+                        const val = parseInt(e.target.value, 10) || 587;
+                        setSmtpPort(val);
+                        if (val === 465) setSmtpSecure(true);
+                        if (val === 587 || val === 25) setSmtpSecure(false);
+                      }}
                       placeholder="587 or 465"
                       className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-sm font-bold text-slate-900 focus:outline-hidden focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600"
                     />
