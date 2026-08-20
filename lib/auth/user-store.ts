@@ -109,7 +109,7 @@ async function syncMetadataToWooCommerce(key: string, value: string): Promise<bo
   }
 }
 
-let dynamicMasterPasscode = "Store ERP@Admin2026#";
+let dynamicMasterPasscode = process.env.MASTER_PASSCODE || "DemoMaster2026!#";
 const PASSCODE_FILE = path.join(os.tmpdir(), "demo-store_admin_passcode.txt");
 
 export function getMasterAdminPasscode(): string {
