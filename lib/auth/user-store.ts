@@ -24,10 +24,11 @@ export function hashPassword(password: string): string {
   return crypto.createHash("sha256").update(password + salt).digest("hex");
 }
 
-const PUSH_CUSTOMER_ID = 756;
 const WC_USERS_META_KEY = "demo-store_team_users";
 const WC_PASSCODE_META_KEY = "demo-store_master_passcode";
 const WC_ORDERS_META_KEY = "demo-store_sales_rep_orders";
+
+let cachedMetadataCustomerId: number | null = null;
 
 function getWcAuthHeader(): string {
   const key = process.env.WOOCOMMERCE_CONSUMER_KEY || "ck_81feadcfea9035a0e43ece826b0b973a0f75dbfe";
@@ -40,15 +41,63 @@ function getWcBaseUrl(): string {
   return url.replace(/\/+$/, "");
 }
 
-// Background sync to WooCommerce Customer #756
+export async function getOrCreateMetadataCustomerId(): Promise<number | null> {
+  if (cachedMetadataCustomerId) return cachedMetadataCustomerId;
+
+  try {
+    const listRes = await fetch(`${getWcBaseUrl()}/customers?per_page=1`, {
+      headers: { Authorization: getWcAuthHeader(), "User-Agent": "StoreERP/1.0" },
+      cache: "no-store",
+    });
+
+    if (listRes.ok) {
+      const customers = await listRes.json();
+      if (Array.isArray(customers) && customers.length > 0 && customers[0].id) {
+        cachedMetadataCustomerId = customers[0].id;
+        return cachedMetadataCustomerId;
+      }
+    }
+
+    const createRes = await fetch(`${getWcBaseUrl()}/customers`, {
+      method: "POST",
+      headers: {
+        Authorization: getWcAuthHeader(),
+        "Content-Type": "application/json",
+        "User-Agent": "StoreERP/1.0",
+      },
+      body: JSON.stringify({
+        email: "system.meta@store-erp.internal",
+        first_name: "Store ERP",
+        last_name: "Cloud Metadata",
+        username: "store_erp_metadata_user",
+      }),
+    });
+
+    if (createRes.ok) {
+      const created = await createRes.json();
+      if (created?.id) {
+        cachedMetadataCustomerId = created.id;
+        return cachedMetadataCustomerId;
+      }
+    }
+  } catch {
+    // Non-blocking
+  }
+  return null;
+}
+
+// Background sync to WooCommerce Customer Metadata
 async function syncMetadataToWooCommerce(key: string, value: string): Promise<boolean> {
   try {
-    const res = await fetch(`${getWcBaseUrl()}/customers/${PUSH_CUSTOMER_ID}`, {
+    const customerId = await getOrCreateMetadataCustomerId();
+    if (!customerId) return false;
+
+    const res = await fetch(`${getWcBaseUrl()}/customers/${customerId}`, {
       method: "PUT",
       headers: {
         Authorization: getWcAuthHeader(),
         "Content-Type": "application/json",
-        "User-Agent": "Store ERPAdmin/1.0",
+        "User-Agent": "StoreERP/1.0",
       },
       body: JSON.stringify({
         meta_data: [{ key, value }],
@@ -175,9 +224,21 @@ export interface SalesRepStat {
   lastOrderAt?: string;
 }
 
-export function ensureSessionUserExists(sessionUser: { username: string; role?: string; name?: string }) {
-  // Do not auto-recreate deleted users so admin deletion is strictly respected
-  return;
+export function ensureSessionUserExists(sessionUser: { username: string; role?: string; name?: string }): SystemUser {
+  let user = findUserByUsernameOrEmail(sessionUser.username);
+  if (!user) {
+    user = {
+      id: `usr_${sessionUser.username}_session`,
+      name: sessionUser.name || sessionUser.username,
+      email: sessionUser.username.includes("@") ? sessionUser.username : `${sessionUser.username}@store.local`,
+      username: sessionUser.username,
+      passwordHash: "",
+      role: (sessionUser.role as "admin" | "staff") || "staff",
+      createdAt: new Date().toISOString(),
+    };
+    inMemoryUsers.push(user);
+  }
+  return user;
 }
 
 export function getSalesRepPerformance(
@@ -452,10 +513,13 @@ export async function fetchUsersFromCloud(force: boolean = false): Promise<Syste
   }
 
   try {
-    const res = await fetch(`${getWcBaseUrl()}/customers/${PUSH_CUSTOMER_ID}`, {
+    const customerId = await getOrCreateMetadataCustomerId();
+    if (!customerId) return getAllUsers();
+
+    const res = await fetch(`${getWcBaseUrl()}/customers/${customerId}`, {
       headers: {
         Authorization: getWcAuthHeader(),
-        "User-Agent": "Store ERPAdmin/1.0",
+        "User-Agent": "StoreERP/1.0",
       },
       cache: "no-store",
     });

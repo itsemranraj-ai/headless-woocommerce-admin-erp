@@ -17,12 +17,10 @@ export async function GET() {
   await fetchUsersFromCloud();
 
   // Verify that the user still exists in the user database (has not been deleted by admin)
-  let existingUser = findUserByUsernameOrEmail(session.username);
-
-  // If not found, force a fresh cloud sync and retry once (handles newly registered users on different serverless instances)
+  // If not found in memory, ensure session user exists from verified JWT payload
   if (!existingUser) {
-    await fetchUsersFromCloud(true);
-    existingUser = findUserByUsernameOrEmail(session.username);
+    const { ensureSessionUserExists } = await import("@/lib/auth/user-store");
+    existingUser = ensureSessionUserExists(session);
   }
 
   if (!existingUser) {
