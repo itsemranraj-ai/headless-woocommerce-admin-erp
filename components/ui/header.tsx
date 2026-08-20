@@ -6,6 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { siteConfig } from "@/config/site";
 import { useOnlineStatus } from "@/hooks/use-online-status";
 import { useNotifications } from "@/contexts/notification-context";
+import { BrandLogo } from "@/components/ui/brand-logo";
 
 const USER_CACHE_KEY = "ff_user_session_v1";
 
@@ -227,9 +228,7 @@ export function Header() {
               href="/"
               className="flex items-center gap-2.5 sm:gap-3 group lg:hidden"
             >
-              <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-black shadow-xs group-hover:scale-105 transition-transform overflow-hidden border border-slate-800 ring-1 ring-violet-500/30">
-                <img src="/icons/icon-192.png" alt="Store ERP" className="w-full h-full object-cover" />
-              </div>
+              <BrandLogo className="w-10 h-10 group-hover:scale-105 transition-transform" />
               <div className="flex flex-col">
                 <span className="font-black text-sm sm:text-base tracking-wider uppercase text-slate-950 leading-tight">
                   STORE ERP
@@ -336,9 +335,7 @@ export function Header() {
             {/* Drawer Header */}
             <div className="p-4 sm:p-5 border-b border-slate-100 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-11 h-11 rounded-2xl bg-black flex items-center justify-center shadow-xs overflow-hidden border border-slate-800 ring-1 ring-violet-500/30">
-                  <img src="/icons/icon-192.png" alt="Store ERP" className="w-full h-full object-cover" />
-                </div>
+                <BrandLogo className="w-11 h-11" />
                 <div>
                   <span className="font-black text-base uppercase text-slate-950 block leading-tight">
                     STORE ERP

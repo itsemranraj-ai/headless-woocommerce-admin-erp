@@ -4,6 +4,7 @@ import React, { useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { StatusBadge } from "@/components/ui/status-badge";
+import { BrandLogo } from "@/components/ui/brand-logo";
 
 function LoginForm() {
   const searchParams = useSearchParams();
@@ -255,9 +256,7 @@ function LoginForm() {
         {/* Brand Header */}
         <CardHeader className="text-center pb-5">
           <div className="flex justify-center mb-3">
-            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-black text-white font-black text-xl shadow-md overflow-hidden border border-slate-800">
-              <img src="/icons/icon-192.png" alt="Store ERP" className="w-full h-full object-cover" />
-            </div>
+            <BrandLogo className="w-16 h-16" />
           </div>
           <div className="flex justify-center mb-2">
             <StatusBadge status="Live Demo Portal" variant="indigo" />

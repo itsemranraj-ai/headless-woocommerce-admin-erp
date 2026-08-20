@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { siteConfig } from "@/config/site";
 import { useNotifications } from "@/contexts/notification-context";
+import { BrandLogo } from "@/components/ui/brand-logo";
 
 const USER_CACHE_KEY = "ff_user_session_v1";
 
@@ -279,9 +280,7 @@ export function Sidebar() {
       {/* Brand Header */}
       <div className="pt-7 pb-5 px-6">
         <Link href="/" className="flex items-center gap-3.5 group">
-          <div className="w-12 h-12 rounded-2xl bg-black flex items-center justify-center shadow-md group-hover:scale-105 transition-transform shrink-0 overflow-hidden border border-slate-800 ring-2 ring-violet-500/20">
-            <img src="/icons/icon-192.png" alt="Store ERP" className="w-full h-full object-cover" />
-          </div>
+          <BrandLogo className="w-12 h-12 group-hover:scale-105 transition-transform" />
           <div className="flex flex-col">
             <span className="font-black text-lg tracking-wider uppercase text-slate-950 font-sans leading-tight">
               STORE ERP

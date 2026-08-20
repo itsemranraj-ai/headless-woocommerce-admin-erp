@@ -1,5 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
-  <rect width="512" height="512" rx="96" fill="#0f172a" />
-  <circle cx="256" cy="256" r="170" fill="#1e293b" stroke="#38bdf8" stroke-width="10" />
-  <path d="M192 180 L320 180 L234 266 L310 266 L204 350 L236 278 L182 278 Z" fill="#38bdf8" />
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#818cf8"/>
+      <stop offset="50%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#4f46e5"/>
+    </linearGradient>
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#818cf8"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="128" fill="url(#bgGrad)"/>
+  <rect width="504" height="504" x="4" y="4" rx="124" fill="none" stroke="#4f46e5" stroke-width="6" stroke-opacity="0.4"/>
+  <g transform="translate(106, 106) scale(0.585)">
+    <path d="M 256 60 C 200 60 170 100 170 160 L 342 160 C 342 100 312 60 256 60 Z" fill="none" stroke="url(#glowGrad)" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 90 170 L 422 170 C 438 170 450 184 446 200 L 396 420 C 392 436 378 448 362 448 L 150 448 C 134 448 120 436 116 420 L 66 200 C 62 184 74 170 90 170 Z" fill="url(#brandGrad)"/>
+    <path d="M 276 200 L 196 310 L 256 310 L 236 418 L 316 300 L 256 300 Z" fill="#ffffff"/>
+  </g>
 </svg>
